@@ -8,6 +8,7 @@ const app = express();
 const controller = require("./controller");
 
 app.use(json());
+app.use(express.static("src"));
 
 massive(process.env.CONNECTION_STRING)
   .then(dbInstance => {

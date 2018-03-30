@@ -9,7 +9,6 @@ class Dashboard extends Component {
     super();
 
     this.deleteStudent = this.deleteStudent.bind(this);
-    this.updateProduct = this.updateProduct.bind(this);
   }
 
   deleteStudent(id) {
@@ -21,16 +20,6 @@ class Dashboard extends Component {
       })
       .catch(console.log);
   }
-
-  // updateProduct(id, name, price, img) {
-  //   const { getRequest } = this.props;
-  //   axios
-  //     .put(`/api/product/${id}`, { name, price, img })
-  //     .then(res => {
-  //       getRequest();
-  //     })
-  //     .catch(console.log);
-  // }
 
   render() {
     const { inventory } = this.props;

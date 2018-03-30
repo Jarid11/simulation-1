@@ -31,6 +31,14 @@ class Form extends Component {
     });
   }
 
+  handleReset() {
+    this.setState({
+      name: "",
+      price: 0,
+      img: ""
+    });
+  }
+
   makeNewProduct(name, price, img) {
     const { getRequest } = this.props;
     axios
@@ -42,21 +50,15 @@ class Form extends Component {
       .catch(console.log);
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  //   // only update chart if the data has changed
-  //   if (prevProps.data !== this.props.data) {
-  //     this.chart = c3.load({
-  //       data: this.props.data
-  //     });
-  //   }
-  // }
-
-  handleReset() {
-    this.setState({
-      name: "",
-      price: 0,
-      img: ""
-    });
+  updateProduct(id, name, price, img) {
+    const { getRequest } = this.props;
+    console.log(id, name, price, img);
+    axios
+      .put(`/api/product/${id}`, { name, price, img })
+      .then(res => {
+        getRequest();
+      })
+      .catch(console.log);
   }
 
   render() {
